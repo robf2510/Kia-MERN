@@ -1,0 +1,94 @@
+<%- include("template/header",{titulo: "Home"}) %> 
+<div class="panel-body fondo2">
+    <img src="./images/logo-forum.png" class="img-forum2" alt="">
+    <div class="panel2">
+        <div class="sub-panel2">
+            <div class="panel-form2">
+                <div class="sub-panel-form2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./images/logo.png" alt="">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-7">    
+                                <h1>Autorización Uso de Datos Personales</h1>              
+                            </div>
+                        </div>
+                    </div>                       
+                    <form action="/cotizando" method="POST" class="row g-3 formulario">
+                        <div class="col-md-6">
+                          <label for="rut" class="form-label">RUT*</label>
+                          <input type="text" id="rut" name="rut" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.rut%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='rut'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="nombres" class="form-label">Nombres*</label>
+                          <input type="text" id="nombres" name="nombres" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.nombres%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='nombres'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="apellidos" class="form-label">Apellidos*</label>
+                          <input type="text" id="apellidos" name="apellidos" class="form-control"  value="<%if(typeof valores!='undefined'){%><%=valores.apellidos%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='apellidos'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="celular" class="form-label">Celular*</label>
+                          <input type="text" id="celular" name="celular" class="form-control" placeholder="+569" value="<%if(typeof valores!='undefined'){%><%=valores.celular%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='celular'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="email" class="form-label">Email*</label>
+                          <input type="text" id="email" name="email" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.email%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='email'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-12">
+                          <h2>Políticas de Privacidad</h2>
+                          <div class="terminos"><p>KIA CHILE SpA, con domicilio en Avenida Las Condes 11.774, Piso -1, comuna de Vitacura, ciudad de Santiago, en adelante denominada indistintamente “Kia Chile" o la “Empresa”; es la empresa responsable en Chile de la Marca KIA.</p>
+                            <p>Este sitio web y sus contenidos son propiedad de Kia Chile por lo que, está prohibida su reproducción total o parcial, su traducción, inclusión, transmisión, almacenamiento o acceso, sin la autorización previa y por escrito de la Empresa. Asimismo, para publicar contenidos de este sitio web se deberá contar previamente, con una autorización escrita otorgada por la Empresa.</p>
+                            <p><strong><u>Autorización para el Tratamiento de Datos Personales.</u></strong></p>
+                            <p>Si usted ha aceptado compartir sus datos personales en virtud de algún aplicativo de la página <a href="https://www.kia.com/cl">https://www.kia.com/cl</a>, en adelante el “Sitio” o “Sitio Web”, de conformidad a lo definido por la Ley N° 19.628 sobre la Protección de Datos de Carácter Personal, usted ha dado la autorización sobre lo siguiente:</p>
+                            <ol>
+                            <li>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca a Kia Chile realice la recolección, almacenamiento, uso, circulación, supresión y en general, el tratamiento de los datos personales que ha entregado en virtud del Sitio, en particular su número de RUT o documento de identidad, nombres y apellidos, domicilio, teléfonos y correo electrónico, en adelante los “Datos Personales”.</li>
+                            <li>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca&nbsp;a que sus Datos Personales sean compartidos a la Red de Concesionarios del Proveedor y sus partners financieros Forum Servicios Financieros S.A., HDI Seguros S.A. y BCI Seguros Generales S.A. (en adelante “Partners Financieros”).</li>
+                            </ol>
+                            <p><strong><u>Finalidad del tratamiento de los Datos Personales.</u></strong></p>
+                            <p>En aquellos casos en que Kia Chile, su Red de Concesionarios o sus Partners Financieros, hagan uso de Datos Personales obtenidos en el Sitio, informamos al Cliente que dicho tratamiento se hará con los siguientes fines:</p>
+                            <ol>
+                            <li>Envío de información comercial, promociones y comunicaciones de marketing a través de medios electrónicos y/o de forma telefónica</li>
+                            <li>Envío de información relativa a su vehículo.</li>
+                            <li>Envío de recomendaciones de productos y servicios que puedan ser su interés.</li>
+                            <li>Envío encuestas de satisfacción asociada a la venta de productos y/o servicios.</li>
+                            </ol>
+                            <p><strong><u>Cuidado en el Tratamiento de Datos Personales.</u></strong></p>
+                            <p>Kia Chile se compromete a realizar un manejo ético y legal de la información recopilada. De esta manera, las bases de datos generadas con la información del Cliente no se harán públicas.</p>
+                            <p>&nbsp;</p>
+                            <p>Kia no venderá, alquilará, ni intercambiará su información personal con terceros distintos de los arriba indicados. Aparte de lo establecido anteriormente, no divulgaremos su información personal.</p>
+                            <p><strong><u>Derechos del Titular de los Datos Personales.</u></strong></p>
+                            <p>Usted, como titular de datos personales, tiene derecho de acceso, rectificación, supresión, limitación del tratamiento y derecho de oposición al tratamiento de sus Datos Personales. También puede retirar su consentimiento previamente otorgado, en cualquier momento.</p>
+                            <p>Usted puede ejercer los derechos antes indicados a través del teléfono 600 3800 542 o mediante el envío de un correo electrónico a <a href="mailto:contactokia@indumotora.cl">contactokia@indumotora.cl</a></p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tacbox">
+                            <input id="checkbox" type="checkbox">
+                            <label for="checkbox">He leído y acepto la Política de Privacidad del sitio web, y doy mi consentimiento para que la Compañía haga uso de mis datos personales recogidos mediante el presente formulario con las finalidades descritas a tal efecto en la referida Política de Privacidad.</label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="tacbox">
+                            <input id="checkbox2" type="checkbox">
+                            <label for="checkbox2">Autorizo de manera libre y voluntaria a la Compañía para que realice la recolección y almacenamiento de mis datos personales recogidos mediante el presente formulario, con la finalidad de cotizar.</label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button id="btn-form" type="submit">ESTOY DE ACUERDO</button>
+                        </div>
+                      </form>                                
+                </div>                
+            </div>            
+        </div>
+    </div>    
+</div>
+<%- include("template/footer") %> 

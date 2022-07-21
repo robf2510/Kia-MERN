@@ -1,0 +1,189 @@
+<%- include("template/header",{titulo: "Home"}) %> 
+<div class="panel-body fondo2">
+    <img src="./images/logo-forum.png" class="img-forum2" alt="">
+    <div class="panel2">
+        <div class="sub-panel2">
+            <div class="panel-form2">
+                <div class="sub-panel-form2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./images/logo.png" alt="">
+                            </div>
+                            <div class="col-sm-9">    
+                                <h1>CARTA INFORMATIVA LEY PRO CONSUMIDOR</h1>              
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="alert alert-info"><span>Por favor, complete el siguiente formulario.</span></div>                    
+                    <form action="/comprando" method="POST" class="row g-3 formulario">
+                        <div class="col-md-6">
+                          <label for="rut" class="form-label">RUT*</label>
+                          <input type="text" id="rut" name="rut" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.rut%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='rut'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="nombres" class="form-label">Nombres*</label>
+                          <input type="text" id="nombres" name="nombres" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.nombres%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='nombres'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="apellidos" class="form-label">Apellidos*</label>
+                          <input type="text" id="apellidos" name="apellidos" class="form-control"  value="<%if(typeof valores!='undefined'){%><%=valores.apellidos%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='apellidos'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="celular" class="form-label">Celular*</label>
+                          <input type="text" id="celular" name="celular" class="form-control" placeholder="+569" value="<%if(typeof valores!='undefined'){%><%=valores.celular%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='celular'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="email" class="form-label">Email*</label>
+                          <input type="text" id="email" name="email" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.email%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='email'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="concesionario" class="form-label">Concesionario*</label>
+                          <select id="concesionario" name="concesionario" class="form-select">
+                            <option value="" <%if(typeof valores!='undefined'){if(valores.concesionario==''){%>selected<%}}%>>Seleccione concesionario</option>
+                            <option value="ALAMEDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='ALAMEDA'){%>selected<%}}%>>ALAMEDA</option>
+                            <option value="ARAUCO LTDA. (OSORNO)" <%if(typeof valores!='undefined'){if(valores.concesionario=='ARAUCO LTDA. (OSORNO)'){%>selected<%}}%>>ARAUCO LTDA. (OSORNO)</option>
+                            <option value="AUTOMOTORA BYB SPA" <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTORA BYB SPA'){%>selected<%}}%>>AUTOMOTORA BYB SPA</option>
+                            <option value="AUTOMOTORA VALP" <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTORA VALP'){%>selected<%}}%>>AUTOMOTORA VALP</option>
+                            <option value="AUTOMOTRIZ CORDILLERA S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTRIZ CORDILLERA S.A.'){%>selected<%}}%>>AUTOMOTRIZ CORDILLERA S.A.</option>
+                            <option value="AUTOMOTRIZ ROSSELOT S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTRIZ ROSSELOT S.A.'){%>selected<%}}%>>AUTOMOTRIZ ROSSELOT S.A.</option>
+                            <option value="AVENTURA MOTORS S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AVENTURA MOTORS S.A.'){%>selected<%}}%>>AVENTURA MOTORS S.A.</option>
+                            <option value="BALADRON E HIJOS S.P.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='BALADRON E HIJOS S.P.A.'){%>selected<%}}%>>BALADRON E HIJOS S.P.A.</option>
+                            <option value="CALLEGARI E HIJOS LTDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='CALLEGARI E HIJOS LTDA'){%>selected<%}}%>>CALLEGARI E HIJOS LTDA</option>
+                            <option value="COMERCIAL AUTOMOTRIZ MIRANDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='COMERCIAL AUTOMOTRIZ MIRANDA'){%>selected<%}}%>>COMERCIAL AUTOMOTRIZ MIRANDA</option>
+                            <option value="COPELEC S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='COPELEC S.A.'){%>selected<%}}%>>COPELEC S.A.</option>
+                            <option value="DANILO JORDAN" <%if(typeof valores!='undefined'){if(valores.concesionario=='DANILO JORDAN'){%>selected<%}}%>>DANILO JORDAN</option>
+                            <option value="GRASS Y ARUESTE" <%if(typeof valores!='undefined'){if(valores.concesionario=='GRASS Y ARUESTE'){%>selected<%}}%>>GRASS Y ARUESTE</option>
+                            <option value="IMPORT STOP S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='IMPORT STOP S.A.'){%>selected<%}}%>>IMPORT STOP S.A.</option>
+                            <option value="INDUMOTORA ONE" <%if(typeof valores!='undefined'){if(valores.concesionario=='INDUMOTORA ONE'){%>selected<%}}%>>INDUMOTORA ONE</option>
+                            <option value="POMPEYO CARRASCO AUTOMOTRIZ SPA" <%if(typeof valores!='undefined'){if(valores.concesionario=='POMPEYO CARRASCO AUTOMOTRIZ SPA'){%>selected<%}}%>>POMPEYO CARRASCO AUTOMOTRIZ SPA</option>
+                            <option value="SIGLO XXI" <%if(typeof valores!='undefined'){if(valores.concesionario=='SIGLO XXI'){%>selected<%}}%>>SIGLO XXI</option>
+                            <option value="SOCIEDAD COMERCIAL AUTOCORP LTDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='SOCIEDAD COMERCIAL AUTOCORP LTDA'){%>selected<%}}%>>SOCIEDAD COMERCIAL AUTOCORP LTDA</option>
+                          </select>
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='concesionario'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="tipo_persona" class="form-label">Tipo Persona*</label>
+                          <select id="tipo_persona" name="tipo_persona" class="form-select">
+                            <option value="" <%if(typeof valores!='undefined'){if(valores.tipo_persona==''){%>selected<%}}%>>Seleccione</option>
+                            <option value="PERSONA NATURAL" <%if(typeof valores!='undefined'){if(valores.tipo_persona=='PERSONA NATURAL'){%>selected<%}}%>>PERSONA NATURAL</option>
+                            <option value="PYME" <%if(typeof valores!='undefined'){if(valores.tipo_persona=='PYME'){%>selected<%}}%>>PYME</option>
+                            <option value="GRAN EMPRESA" <%if(typeof valores!='undefined'){if(valores.tipo_persona=='GRAN EMPRESA'){%>selected<%}}%>>GRAN EMPRESA</option>
+                          </select>
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='tipo_persona'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-12">
+                            <h2>Contrato</h2>
+                            <div class="terminos" style="margin-top: 15px;margin-bottom: 15px;">
+                                <p><strong>1. Garantía Legal</strong>: la tiene todo propietario de un vehículo nuevo cuando éste se encuentra defectuoso, le faltan piezas o partes o no es apto para el uso que fue destinado, o bien fue arreglado, pero sus deficiencias persisten o presenta nuevas fallas. En dichos casos, y lo demás establecidos por la Ley, el consumidor puede elegir una entre las siguientes tres alternativas:<br>1.1. Reparación gratuita, o</p>
+                                <p>1.2. Cambio del producto, previa restitución del vehículo, o</p>
+                                <p>1.3. Devolución del dinero, previa restitución del vehículo.</p>
+                                <p>Para hacer efectiva la Garantía Legal, los deterioros o desperfectos no pueden ser imputables a un hecho del consumidor, como, por ejemplo: el sobrecalentamiento imputable al cliente; combustible contaminado; usar diésel en vez de bencina, entre otros.</p>
+                                <p>Como regla general, el vehículo deberá ser sometido a una revisión o diagnóstico previo, a fin de determinar la causa u origen de la falla que presenta la unidad y descartar que ésta se deba a un hecho imputable al cliente.</p>
+                                <p>Dicha Garantía se mantendrá vigente durante los 3 primeros meses contados desde la recepción del vehículo. No obstante, a contar del 24 de marzo de 2022 dicho plazo se ampliará a 6 meses.</p>
+                                <p><strong>2. Garantía Voluntaria</strong> o <strong>Contractual</strong> (también denominada “<strong>Garantía Kia</strong>”): es aquella que voluntariamente Kia otorga a sus clientes y que cubre fallas que puedan afectar a un vehículo nuevo.</p>
+                                <p>Esta aplica cuando un vehículo nuevo se encuentra defectuoso, le faltan piezas o partes, o no es apto para el uso que fue destinado, o bien fue arreglado pero sus deficiencias persisten o presenta nuevas fallas, y entre otras causales establecidas por la Libreta de Garantía.</p>
+                                <p>El plazo para ejercer este derecho son 36 meses ó 100.000 Kilómetros, condición que primero ocurra, desde el momento de la entrega del vehículo, y se puede realizar el requerimiento a través del sitio <a href="https://www.kia.com/cl/clientes/contactanos.html">https://www.kia.com/cl/clientes/contactanos.html</a>.</p>
+                                <p>Para Ejercer la Garantía Convencional, la falla debe ocurrir bajo condiciones normales de uso y funcionamiento, aplicándose sólo a los vehículos importados y distribuidos por Kia, sujeto a la realización de las mantenciones establecidas en la Libreta de Garantía. Además, se debe dar aviso dentro de las 72 horas siguientes al acaecimiento de la falla o desperfecto y cumplir con los demás requisitos establecidos en la citada Libreta.</p>
+                                <p><strong>3. Derecho a retracto</strong>: Facultad que tiene el consumidor para poner término al contrato de compraventa, sin expresión de causa. Aplica en toda compra de vehículos realizada por medios electrónicos o cualquier otra forma de comunicación a distancia y en la compra presencial de vehículos en que el consumidor no tuvo acceso directo al vehículo. El plazo es de 10 días contados desde la recepción del vehículo.</p>
+                                <p>Para hacer efectivo el derecho de retracto el cliente podrá utilizar los mismos medios que empleó para celebrar el respectivo contrato de compraventa. Esto es, si la compra fue a distancia, podrá contactarse mediante correo electrónico o teléfono, y si la compra fue presencial, podrá solicitarse al ejecutivo de ventas del concesionario en donde se efectuó directamente la compra del vehículo.</p>
+                                <p>¿Cuáles son las condiciones para ejercer el derecho a retracto? El vehículo deberá restituirse en buen estado con los elementos originales del embalaje, como las etiquetas, certificados de garantía, manuales de uso, cajas y elementos de protección, y sin más de 30 kilómetros recorridos posterior a la entrega y se deberá cumplir con lo demás requisitos establecidos en la Política de Retracto estipulada en https://www.kia.com.</p>
+                                <p>Cliente&nbsp; declara que ha tenido acceso directo al vehículo y a todas las especificaciones relevantes del mismo y a la ficha técnica, catálogos, imágenes, sitio web y/o vehículos de similares características de manera presencial, antes de la compra.</p>
+                                <p>4. El cliente autoriza que sus datos personales sean tratados y usados para ser contactado por Kia, su Red de Concesionarios y/o sus Partners Financieros, para recibir más información asociada al vehículo e información comercial, promociones y comunicaciones de marketing a través de medios electrónicos y/o de forma telefónica, conforme a la Política de Privacidad que se adjunta.</p>
+                                <p>&nbsp;</p>
+                                <p>5. El Cliente tiene derecho a acudir siempre al tribunal competente conforme a las disposiciones contenidas en la Ley.</p>
+                                <p>&nbsp;</p>
+                                  <p>6. El cliente, o quien representa la compra, certifica que es:&nbsp;<span id="mitipopersona">TIPO PERSONA</span></p>
+                                <p>&nbsp;</p>
+                                <p>7. El cliente está en conocimiento y ha aceptado que la carrocería y/o equipamiento adicional del vehículo ha sido solicitada por cuenta y orden propia, y que por tanto Kia actúa solamente como intermediario en la compra de la carrocería y/o equipamiento adicional con el proveedor &nbsp;&nbsp;<span id="miconcesionario"></span></p>
+                                <p>&nbsp;</p>
+                                <p>Que, estoy en conocimiento y he aceptado que Kia Chile SpA no es responsable de las características del equipamiento o carrocería solicitada ni tampoco de la calidad del producto instalado.</p>
+                                <p>&nbsp;</p>
+                                <p>8. El cliente está en conocimiento que puede encontrar los precios referenciales de las mantenciones y la red de talleres y servicios técnicos autorizados disponibles en la página web <a href="http://www.kia.cl">www.kia.cl</a></p>
+                                <p>&nbsp;</p>
+                                <p>9. El Cliente declara que ha tomado conocimiento de esta información y manifiesta su conformidad mediante la firma del presente documento, quedándose con una copia.</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class="tacbox">
+                                <input id="checkbox" type="checkbox">
+                                <label for="checkbox"style="margin-bottom: 7px;">Declaro haber leido y aceptado las condiciones descritas en el presente documento</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h2 style="margin-top: 20px;">Políticas de Privacidad</h2>
+                            <div class="terminos" style="margin-top: 15px;margin-bottom: 15px;">
+                                <p><strong>&nbsp;</strong><strong><u>Autorización para el Tratamiento de Datos Personales.</u></strong></p>
+                                <p>Si usted ha aceptado compartir sus datos personales en virtud del presente documento, de conformidad a lo definido por la Ley N° 19.628 sobre la Protección de Datos de Carácter Personal, usted ha dado la autorización sobre lo siguiente:</p>
+                                <ol>
+                                <li><strong>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca a KIA CHILE SpA</strong>, en adelante el “Proveedor” o “Kia”, para que en los términos legalmente establecidos realice la recolección, almacenamiento, uso, circulación, supresión y en general, el tratamiento de los datos personales que ha entregado, en particular su número de RUT o documento de identidad, nombres y apellidos, domicilio, teléfonos y correo electrónico, en adelante los “Datos Personales”.</li>
+                                <li><strong>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca</strong>a que sus Datos Personales sean compartidos a la Red de Concesionarios del Proveedor y sus partners financieros Forum Servicios Financieros S.A., HDI Seguros S.A. y BCI Seguros Generales S.A. (en adelante “Partners Financieros”).</li>
+                                </ol>
+                                <p><strong><u>Finalidad del tratamiento de los Datos Personales.</u></strong></p>
+                                <p>En aquellos casos en que Kia, su Red de Concesionarios o sus Partners Financieros, hagan uso de Datos Personales obtenidos en el proceso de Reserva, informamos al Cliente que dicho tratamiento se hará con los siguientes fines:</p>
+                                <ol>
+                                <li>Envío de información comercial, promociones y comunicaciones de marketing a través de medios electrónicos y/o de forma telefónica</li>
+                                <li>Envío de información relativa a su vehículo.</li>
+                                <li>Envío de recomendaciones de productos y servicios que puedan ser su interés.</li>
+                                <li>Envío encuestas de satisfacción asociada a la venta de productos y/o servicios.</li>
+                                </ol>
+                                <p><strong><u>Cuidado en el Tratamiento de Datos Personales.</u></strong></p>
+                                <p>Kia se compromete a realizar un manejo ético y legal de la información recopilada. De esta manera, las bases de datos generadas con la información del Cliente no se harán públicas.</p>
+                                <p>Kia no venderá, alquilará, ni intercambiará su información personal con terceros distintos de los arriba indicados. Aparte de lo establecido anteriormente, no divulgaremos su información personal.</p>
+                                <p><strong><u>Derechos del Titular de los Datos Personales.</u></strong></p>
+                                <p>Usted, como titular de datos personales, tiene derecho de acceso, rectificación, supresión, limitación del tratamiento y derecho de oposición al tratamiento de sus Datos Personales. También puede retirar su consentimiento previamente otorgado, en cualquier momento.</p>
+                                <p>Usted puede ejercer los derechos antes indicados a través del teléfono 600 3800 542 o mediante el envío de un correo electrónico a <a href="mailto:contactokia@indumotora.cl">contactokia@indumotora.cl</a></p>
+                                <p><strong><u>Responsable en el manejo de Datos Personales.</u></strong></p>
+                                <ol>
+                                <li>Nombre de la Empresa: Kia Chile SpA.</li>
+                                <li>RUT: 79.567.420 – 9.</li>
+                                <li>Dirección: Avenida Las Condes N° 11.774, piso -1, comuna de Vitacura, ciudad de Santiago.</li>
+                                <li>Representante Legal: Nuestro representante legal es don Mauricio Fuenzalida Espinoza, cuyo domicilio corresponde a Avenida Las Condes Nº 11.774, piso -1, comuna de Vitacura, ciudad de Santiago de Chile.</li>
+                                </ol>
+                            </div>
+                            <div class="tacbox">
+                                <input id="checkbox2" type="checkbox">
+                                <label for="checkbox2">He leído y acepto la Política de Privacidad del sitio web, y doy mi consentimiento para que la Compañía haga uso de mis datos personales recogidos mediante el presente formulario con las finalidades descritas a tal efecto en la referida Política de Privacidad.</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="container-canvas">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h1>Firma Cliente</h1>
+                                        <p>Cuando finalices tu firma, presiona "Listo"</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="canvas">
+                                            <canvas class="roundCorners" id="newSignature" style="position: relative; margin: 0; padding: 0; border: 1px solid #c4caac;"></canvas>
+                                        </div>   
+                                        <input type="hidden" id="saveSignature" name="saveSignature">                                       
+                                        <script>
+                                            signatureCapture();
+                                        </script>
+                                        <div class="botones">
+                                            <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='saveSignature'){%><%= error.msg %><%}});%><%}%></span>                                        
+                                            <button type="button" onclick="signatureClear()">Limpiar</button>
+                                            <button type="button" onclick="signatureSave()">Listo</button> 
+                                        </div>                                                                               
+                                     </div>
+                                     <div class="col-sm-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button id="btn-form" type="submit">ESTOY DE ACUERDO</button>
+                        </div>
+                      </form>                                
+                </div>                
+            </div>            
+        </div>
+    </div>    
+</div>
+<%- include("template/footer") %> 

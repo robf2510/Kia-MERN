@@ -1,0 +1,195 @@
+<%- include("template/header",{titulo: "Home"}) %> 
+<div class="panel-body fondo2">
+    <img src="./images/logo-forum.png" class="img-forum2" alt="">
+    <div class="panel2">
+        <div class="sub-panel2">
+            <div class="panel-form2">
+                <div class="sub-panel-form2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img src="./images/logo.png" alt="">
+                            </div>
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-sm-8">    
+                                <h1>ANEXO RESERVA DE VEHICULOS NUEVOS</h1>              
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="alert alert-info"><span>Por favor, complete el siguiente formulario.</span></div>                    
+                    <form action="/reservando" method="POST" class="row g-3 formulario">
+                        <div class="col-md-6">
+                          <label for="rut" class="form-label">RUT*</label>
+                          <input type="text" id="rut" name="rut" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.rut%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='rut'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="nombres" class="form-label">Nombres*</label>
+                          <input type="text" id="nombres" name="nombres" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.nombres%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='nombres'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="apellidos" class="form-label">Apellidos*</label>
+                          <input type="text" id="apellidos" name="apellidos" class="form-control"  value="<%if(typeof valores!='undefined'){%><%=valores.apellidos%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='apellidos'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="celular" class="form-label">Celular*</label>
+                          <input type="text" id="celular" name="celular" class="form-control" placeholder="+569" value="<%if(typeof valores!='undefined'){%><%=valores.celular%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='celular'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="email" class="form-label">Email*</label>
+                          <input type="text" id="email" name="email" class="form-control" value="<%if(typeof valores!='undefined'){%><%=valores.email%><%}%>">
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='email'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="concesionario" class="form-label">Concesionario*</label>
+                          <select id="concesionario" name="concesionario" class="form-select">
+                            <option value="" <%if(typeof valores!='undefined'){if(valores.concesionario==''){%>selected<%}}%>>Seleccione concesionario</option>
+                            <option value="ALAMEDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='ALAMEDA'){%>selected<%}}%>>ALAMEDA</option>
+                            <option value="ARAUCO LTDA. (OSORNO)" <%if(typeof valores!='undefined'){if(valores.concesionario=='ARAUCO LTDA. (OSORNO)'){%>selected<%}}%>>ARAUCO LTDA. (OSORNO)</option>
+                            <option value="AUTOMOTORA BYB SPA" <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTORA BYB SPA'){%>selected<%}}%>>AUTOMOTORA BYB SPA</option>
+                            <option value="AUTOMOTORA VALP" <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTORA VALP'){%>selected<%}}%>>AUTOMOTORA VALP</option>
+                            <option value="AUTOMOTRIZ CORDILLERA S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTRIZ CORDILLERA S.A.'){%>selected<%}}%>>AUTOMOTRIZ CORDILLERA S.A.</option>
+                            <option value="AUTOMOTRIZ ROSSELOT S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AUTOMOTRIZ ROSSELOT S.A.'){%>selected<%}}%>>AUTOMOTRIZ ROSSELOT S.A.</option>
+                            <option value="AVENTURA MOTORS S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='AVENTURA MOTORS S.A.'){%>selected<%}}%>>AVENTURA MOTORS S.A.</option>
+                            <option value="BALADRON E HIJOS S.P.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='BALADRON E HIJOS S.P.A.'){%>selected<%}}%>>BALADRON E HIJOS S.P.A.</option>
+                            <option value="CALLEGARI E HIJOS LTDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='CALLEGARI E HIJOS LTDA'){%>selected<%}}%>>CALLEGARI E HIJOS LTDA</option>
+                            <option value="COMERCIAL AUTOMOTRIZ MIRANDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='COMERCIAL AUTOMOTRIZ MIRANDA'){%>selected<%}}%>>COMERCIAL AUTOMOTRIZ MIRANDA</option>
+                            <option value="COPELEC S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='COPELEC S.A.'){%>selected<%}}%>>COPELEC S.A.</option>
+                            <option value="DANILO JORDAN" <%if(typeof valores!='undefined'){if(valores.concesionario=='DANILO JORDAN'){%>selected<%}}%>>DANILO JORDAN</option>
+                            <option value="GRASS Y ARUESTE" <%if(typeof valores!='undefined'){if(valores.concesionario=='GRASS Y ARUESTE'){%>selected<%}}%>>GRASS Y ARUESTE</option>
+                            <option value="IMPORT STOP S.A." <%if(typeof valores!='undefined'){if(valores.concesionario=='IMPORT STOP S.A.'){%>selected<%}}%>>IMPORT STOP S.A.</option>
+                            <option value="INDUMOTORA ONE" <%if(typeof valores!='undefined'){if(valores.concesionario=='INDUMOTORA ONE'){%>selected<%}}%>>INDUMOTORA ONE</option>
+                            <option value="POMPEYO CARRASCO AUTOMOTRIZ SPA" <%if(typeof valores!='undefined'){if(valores.concesionario=='POMPEYO CARRASCO AUTOMOTRIZ SPA'){%>selected<%}}%>>POMPEYO CARRASCO AUTOMOTRIZ SPA</option>
+                            <option value="SIGLO XXI" <%if(typeof valores!='undefined'){if(valores.concesionario=='SIGLO XXI'){%>selected<%}}%>>SIGLO XXI</option>
+                            <option value="SOCIEDAD COMERCIAL AUTOCORP LTDA" <%if(typeof valores!='undefined'){if(valores.concesionario=='SOCIEDAD COMERCIAL AUTOCORP LTDA'){%>selected<%}}%>>SOCIEDAD COMERCIAL AUTOCORP LTDA</option>
+                          </select>
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='concesionario'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="banco" class="form-label">Banco*</label>
+                          <select id="banco" name="banco" class="form-select">
+                            <option value="" <%if(typeof valores!='undefined'){if(valores.banco==''){%>selected<%}}%>>Seleccione Banco</option>
+                            <option value="BANCO DE CHILE-EDWARDS" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO DE CHILE-EDWARDS'){%>selected<%}}%>>BANCO DE CHILE-EDWARDS</option>
+                            <option value="BANCO INTERNACIONAL" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO INTERNACIONAL'){%>selected<%}}%>>BANCO INTERNACIONAL</option>
+                            <option value="SCOTIABANK CHILE" <%if(typeof valores!='undefined'){if(valores.banco=='SCOTIABANK CHILE'){%>selected<%}}%>>SCOTIABANK CHILE</option>
+                            <option value="BANCO DE CREDITO E INVERSIONES" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO DE CREDITO E INVERSIONES'){%>selected<%}}%>>BANCO DE CREDITO E INVERSIONES</option>
+                            <option value="BANCO BICE" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO BICE'){%>selected<%}}%>>BANCO BICE</option>
+                            <option value="BANCO SANTANDER-BANEFE" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO SANTANDER-BANEFE'){%>selected<%}}%>>BANCO SANTANDER-BANEFE</option>
+                            <option value="ITAÚ CORPBANCA" <%if(typeof valores!='undefined'){if(valores.banco=='ITAÚ CORPBANCA'){%>selected<%}}%>>ITAÚ CORPBANCA</option>
+                            <option value="BANCO FALABELLA" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO FALABELLA'){%>selected<%}}%>>BANCO FALABELLA</option>
+                            <option value="BANCO RIPLEY" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO RIPLEY'){%>selected<%}}%>>BANCO RIPLEY </option>
+                            <option value="BANCO BTG PACTUAL CHILE" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO BTG PACTUAL CHILE'){%>selected<%}}%>>BANCO BTG PACTUAL CHILE</option>
+                            <option value="BANCO DO BRASIL S.A." <%if(typeof valores!='undefined'){if(valores.banco=='BANCO DO BRASIL S.A.'){%>selected<%}}%>>BANCO DO BRASIL S.A.</option>
+                            <option value="JP MORGAN CHASE BANK, N. A." <%if(typeof valores!='undefined'){if(valores.banco=='JP MORGAN CHASE BANK, N. A.'){%>selected<%}}%>>JP MORGAN CHASE BANK, N. A. </option>
+                            <option value="BANCO DE LA NACION ARGENTINA" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO DE LA NACION ARGENTINA'){%>selected<%}}%>>BANCO DE LA NACION ARGENTINA</option>
+                            <option value="MUFG Bank, Ltd." <%if(typeof valores!='undefined'){if(valores.banco=='MUFG Bank, Ltd.'){%>selected<%}}%>>MUFG Bank, Ltd.</option>
+                            <option value="CHINA CONSTRUCTION BANK, AGENCIA EN CHILE" <%if(typeof valores!='undefined'){if(valores.banco=='CHINA CONSTRUCTION BANK, AGENCIA EN CHILE'){%>selected<%}}%>>CHINA CONSTRUCTION BANK, AGENCIA EN CHILE</option>
+                            <option value="BANK OF CHINA, AGENCIA EN CHILE" <%if(typeof valores!='undefined'){if(valores.banco=='BANK OF CHINA, AGENCIA EN CHILE'){%>selected<%}}%>>BANK OF CHINA, AGENCIA EN CHILE</option>
+                            <option value="BANCO DEL ESTADO DE CHILE" <%if(typeof valores!='undefined'){if(valores.banco=='BANCO DEL ESTADO DE CHILE'){%>selected<%}}%>>BANCO DEL ESTADO DE CHILE</option>
+                          </select>
+                          <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='banco'){%><%= error.msg %><%}});%><%}%></span>
+                        </div>
+                        <div class="col-md-12">
+                            <h2>Contrato</h2>
+                            <div class="terminos" style="margin-top: 15px;margin-bottom: 15px;">
+                                <p>1. <span id="miconcesionario">EL CONCESIONARIO</span> (el “Concesionario”), ha implementado para sus clientes un sistema de reserva de vehículos, que no constituye un contrato de compraventa, previo pago de la suma indicada en el pedido de venta (el “Pedido”). El Concesionario se obliga a gestionar la solicitud de compra de un vehículo nuevo, del modelo, color y versión indicados en el Pedido (la “Reserva”).</p>
+                                <p>&nbsp;</p>
+                                <p>2. El plazo de arribo a Chile del vehículo reservado puede variar entre 1 a 6 meses contados desde la fecha de la Reserva; y podría extenderse por motivos de fuerza mayor o caso fortuito, lo que será debida y oportunamente informado al Cliente.</p>
+                                <p>El Concesionario realizará todas las gestiones posibles para que el vehículo sea del modelo, color y versión que se indican en la Reserva. No obstante, se advierte desde ya al Cliente que el precio, modelo, color y versión del vehículo puede variar desde la fecha de la Reserva hasta la emisión de la factura, lo que en ningún caso podrá entenderse como una infracción o incumplimiento por parte del Concesionario a las condiciones de la Reserva, lo que es expresamente entendido y aceptado por el Cliente sin ningún tipo de reparos o reservas.</p>
+                                <p>El Cliente será debida y oportunamente informado de cualquiera de estos cambios y mantendrá la facultad de desistirse de la compra del vehículo en cualquier momento previo a su facturación.</p>
+                                <p>&nbsp;</p>
+                                <p>3. El Concesionario informará al Cliente acerca de la llegada del vehículo reservado, el precio definitivo y el local en que se encontrará disponible (“el Local”). A partir de esta comunicación, el Cliente dispone de un plazo máximo de 5 días hábiles para efectuar la compra, pagando el precio definitivo del vehículo que se le informe. Para estos efectos, el valor pagado por la Reserva constituirá un abono al precio final del vehículo. Será responsabilidad del cliente mantener las condiciones necesarias para solventar el pago (según la modalidad por la que opte).</p>
+                                <p>&nbsp;</p>
+                                <p>4. En caso de desistirse de la compra o no concurrir al Local dentro del señalado plazo de 5 días, el Concesionario podrá disponer libremente del vehículo y se devolverá al cliente el dinero que se hubiere pagado por la Reserva, dentro de un plazo máximo de 30 días corridos contados de la referida renuncia.</p>
+                                <p>La devolución se realizará a la misma cuenta desde la cual se recibió o, en caso haberse recibido efectivo, mediante retiro de vale vista del Banco <span id="mibanco">EL BANCO</span>. Se informará de la transferencia o disponibilidad de retiro de vale vista previamente al cliente.</p>
+                                <p>&nbsp;</p>
+                                <p>5. La entrega del vehículo se realizará en el plazo máximo de 15 días hábiles contados desde la facturación, la que se realizará previo pago de la totalidad del precio; salvo que el vehículo requiera equipamiento adicional a solicitud del cliente (lo que se especifica en el Pedido) en cuyo caso se realizará en el plazo máximo de 60 días hábiles.</p>
+                                <p>&nbsp;</p>
+                                <p>6. Las comunicaciones oficiales se harán por correo electrónico, según la información que aporte el mismo cliente.</p>
+                                <p>7. El cliente autoriza que sus datos personales sean tratados y usados para ser contactado por Kia Chile SpA, su Red de Concesionarios y/o sus Partners Financieros, para recibir más información asociada al vehículo e información comercial, promociones y comunicaciones de marketing a través de medios electrónicos y/o de forma telefónica, conforme a la Política de Privacidad que se adjunta.</p>
+                                <p>8. El cliente autoriza que los datos personales indicados en la Política de Privacidad sean tratados y usados para llevar a cabo de forma correcta la presente Reserva.</p>
+                                <p>9. El cliente declara que ha tenido acceso a las características y especificaciones relevantes del vehículo a través de la ficha técnica, catálogos, imágenes, sitio web y/o vehículos de similares características de manera presencial.</p>
+                                <p>El Cliente tiene derecho a acudir siempre al tribunal competente conforme a las disposiciones contenidas en la ley.</p>
+                                <p>10. El Cliente declara que ha tomado conocimiento de esta información y manifiesta su conformidad mediante la firma del presente documento, quedándose con una copia.</p>
+                            </div>
+                            <div class="tacbox">
+                                <input id="checkbox" type="checkbox">
+                                <label for="checkbox"style="margin-bottom: 7px;">Declaro haber leido y aceptado las condiciones descritas en el presente documento</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h2 style="margin-top: 20px;">Políticas de Privacidad</h2>
+                            <div class="terminos" style="margin-top: 15px;margin-bottom: 15px;">
+                                <p><strong>&nbsp;</strong><strong><u>Autorización para el Tratamiento de Datos Personales.</u></strong></p>
+                                <p>Si usted ha aceptado compartir sus datos personales en virtud del presente documento, de conformidad a lo definido por la Ley N° 19.628 sobre la Protección de Datos de Carácter Personal, usted ha dado la autorización sobre lo siguiente:</p>
+                                <ol>
+                                <li><strong>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca a KIA CHILE SpA</strong>, en adelante el “Proveedor” o “Kia”, para que en los términos legalmente establecidos realice la recolección, almacenamiento, uso, circulación, supresión y en general, el tratamiento de los datos personales que ha entregado, en particular su número de RUT o documento de identidad, nombres y apellidos, domicilio, teléfonos y correo electrónico, en adelante los “Datos Personales”.</li>
+                                <li><strong>Autoriza de manera libre, voluntaria, previa, explícita, informada e inequívoca</strong>a que sus Datos Personales sean compartidos a la Red de Concesionarios del Proveedor y sus partners financieros Forum Servicios Financieros S.A., HDI Seguros S.A. y BCI Seguros Generales S.A. (en adelante “Partners Financieros”).</li>
+                                </ol>
+                                <p><strong><u>Finalidad del tratamiento de los Datos Personales.</u></strong></p>
+                                <p>En aquellos casos en que Kia, su Red de Concesionarios o sus Partners Financieros, hagan uso de Datos Personales obtenidos en el proceso de Reserva, informamos al Cliente que dicho tratamiento se hará con los siguientes fines:</p>
+                                <ol>
+                                <li>Envío de información comercial, promociones y comunicaciones de marketing a través de medios electrónicos y/o de forma telefónica</li>
+                                <li>Envío de información relativa a su vehículo.</li>
+                                <li>Envío de recomendaciones de productos y servicios que puedan ser su interés.</li>
+                                <li>Envío encuestas de satisfacción asociada a la venta de productos y/o servicios.</li>
+                                </ol>
+                                <p><strong><u>Cuidado en el Tratamiento de Datos Personales.</u></strong></p>
+                                <p>Kia se compromete a realizar un manejo ético y legal de la información recopilada. De esta manera, las bases de datos generadas con la información del Cliente no se harán públicas.</p>
+                                <p>Kia no venderá, alquilará, ni intercambiará su información personal con terceros distintos de los arriba indicados. Aparte de lo establecido anteriormente, no divulgaremos su información personal.</p>
+                                <p><strong><u>Derechos del Titular de los Datos Personales.</u></strong></p>
+                                <p>Usted, como titular de datos personales, tiene derecho de acceso, rectificación, supresión, limitación del tratamiento y derecho de oposición al tratamiento de sus Datos Personales. También puede retirar su consentimiento previamente otorgado, en cualquier momento.</p>
+                                <p>Usted puede ejercer los derechos antes indicados a través del teléfono 600 3800 542 o mediante el envío de un correo electrónico a <a href="mailto:contactokia@indumotora.cl">contactokia@indumotora.cl</a></p>
+                                <p><strong><u>Responsable en el manejo de Datos Personales.</u></strong></p>
+                                <ol>
+                                <li>Nombre de la Empresa: Kia Chile SpA.</li>
+                                <li>RUT: 79.567.420 – 9.</li>
+                                <li>Dirección: Avenida Las Condes N° 11.774, piso -1, comuna de Vitacura, ciudad de Santiago.</li>
+                                <li>Representante Legal: Nuestro representante legal es don Mauricio Fuenzalida Espinoza, cuyo domicilio corresponde a Avenida Las Condes Nº 11.774, piso -1, comuna de Vitacura, ciudad de Santiago de Chile.</li>
+                                </ol>
+                            </div>
+                            <div class="tacbox">
+                                <input id="checkbox2" type="checkbox">
+                                <label for="checkbox2">Autorizo de manera libre y voluntaria a la Compañía para que realice la recolección y almacenamiento de mis datos personales recogidos mediante el presente formulario, con la finalidad de cotizar.</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="container-canvas">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h1>Firma Cliente</h1>
+                                        <p>Cuando finalices tu firma, presiona "Listo"</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="canvas">
+                                            <canvas class="roundCorners" id="newSignature" style="position: relative; margin: 0; padding: 0; border: 1px solid #c4caac;"></canvas>
+                                        </div>   
+                                        <input type="hidden" id="saveSignature" name="saveSignature">                                       
+                                        <script>
+                                            signatureCapture();
+                                        </script>
+                                        <div class="botones">
+                                            <span class="errorSpan"><%if(typeof errores!='undefined'){%><%errores.forEach((error)=>{%><%if(error.param=='saveSignature'){%><%= error.msg %><%}});%><%}%></span>                                        
+                                            <button type="button" onclick="signatureClear()">Limpiar</button>
+                                            <button type="button" onclick="signatureSave()">Listo</button> 
+                                        </div>                                                                               
+                                     </div>
+                                     <div class="col-sm-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button id="btn-form" type="submit">ESTOY DE ACUERDO</button>
+                        </div>
+                      </form>                                
+                </div>                
+            </div>            
+        </div>
+    </div>    
+</div>
+<%- include("template/footer") %> 
